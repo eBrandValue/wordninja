@@ -78,7 +78,8 @@ class LanguageModel(object):
     return reversed(out)
 
 DEFAULT_LANGUAGE_MODEL = LanguageModel(os.path.join(os.path.dirname(os.path.abspath(__file__)),'wordninja','wordninja_words.txt.gz'))
-_SPLIT_RE = re.compile("[^a-zA-Z0-9']+")
+letter_and_numbers = "qwertyuıopğüasdfghjklşizxcvbnmöçQWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ0123456789"
+_SPLIT_RE = re.compile(letter_and_numbers)
 
 def split(s):
   return DEFAULT_LANGUAGE_MODEL.split(s)
